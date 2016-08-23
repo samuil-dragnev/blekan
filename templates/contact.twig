@@ -1,0 +1,84 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="header center black-text" style="font-family: 'Dancing Script', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Kontakta // Contact</h2>
+        <div class="row">
+            <div class="col s12 l6 z-depth-3 card-panel">
+                <form action="{{ path_for('contact') }}" method="post" autocomplete="off">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" name="first_name" class="validate{{ validation_errors.first_name ? " invalid" : " " }}" value="{{old_input.first_name}}">
+                            <label for="first_name" data-error="{{ validation_errors.first_name ? validation_errors.first_name | first : " "  }}" data-translatable>Förnamn // First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" name="last_name" class="validate{{ validation_errors.last_name ? " invalid" : " " }}" value="{{old_input.last_name}}">
+                            <label for="last_name" data-error="{{ validation_errors.last_name ? validation_errors.last_name | first : " "  }}" data-translatable>Efternamn // Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="phone" type="text" name="phone" class="validate{{ validation_errors.phone ? " invalid" : " " }}" value="{{old_input.phone}}">
+                            <label for="phone" data-error="{{ validation_errors.phone ? validation_errors.phone | first : " "  }}" data-translatable>Telefonnummer // Phone</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" name="email" class="validate{{ validation_errors.email ? " invalid" : " " }}" value="{{old_input.email}}">
+                            <label for="email" data-error="{{ validation_errors.email ? validation_errors.email | first : " "  }}" data-translatable>E-post // Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" name="message" class="materialize-textarea{{ validation_errors.message ? " invalid" : " " }}">{{old_input.message}}</textarea>
+                            <label for="textarea1" data-error="{{ validation_errors.message ? validation_errors.message | first : " "  }}" data-translatable>Meddelande // Message</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m8 l6">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">
+                                <span data-translatable>Skicka // Submit</span>
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                    {{ csrf.field | raw }}
+                </form>
+            </div>
+            <div class="col s12 l5 push-l1 card-panel z-depth-2">
+                <div class="row">
+                    <div class="col s12">
+                        <iframe style="width: 100%;" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwriVH1e4WBRYvmqAnb_u8sP2XjhMQxm4&q=Restaurang+Blekan+AB" allowfullscreen></iframe>
+                    </div>
+                    <div class="col s12">
+                        <ul>
+                            <li>
+                                <strong class="gray-text text-lighten-4">
+                                    <i class="material-icons">location_on</i>
+                                    <span data-translatable>Adress: // Address:</span>
+                                </strong>
+                                <a
+                                    class="grey-text text-darken-3"
+                                    href="https://www.google.se/maps/place/Restaurang+Blekan+AB/@56.2040022,15.2768033,17z/data=!4m13!1m7!3m6!1s0x4656646339c1c1b5:0x7c1b789ef91ced4d!2s%C3%96vre+Brunnsv%C3%A4gen+30,+372+36+Ronneby!3b1!8m2!3d56.2040022!4d15.278992!3m4!1s0x4656646339c1c1b5:0xe01b7761c474de27!8m2!3d56.2040317!4d15.2791887"
+                                    target="_blank">{{ general.address }}</a>
+                            </li>
+                            <li>
+                                <strong class="gray-text text-darken-4">
+                                    <i class="material-icons">phone</i>
+                                    <span data-translatable>Telefon: // Telphone:</span>
+                                </strong>
+                                <a class="grey-text text-darken-3" href="tel:+46-{{ general.telephone }}">0{{ general.telephone }}</a>
+                            </li>
+                            <li>
+                                <strong class="grey-text text-darken-4">
+                                    <i class="material-icons">email</i>
+                                    Email:</strong>
+                                <a class="grey-text text-darken-3" href="mailto: {{ general.email }}">{{ general.email }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

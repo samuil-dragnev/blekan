@@ -1,0 +1,87 @@
+<header>
+    <div class="navbar-fixed">
+        <ul id="lang-dropdown" class="dropdown-content">
+            <li>
+                <a class="waves-effect btn-swedish" href="#!">
+                    <span class="flag-icon flag-icon-se"></span>
+                    Svenska</a>
+            </li>
+            <li>
+                <a class="waves-effect btn-english" href="#!">
+                    <span class="flag-icon flag-icon-gb"></span>
+                    English</a>
+            </li>
+        </ul>
+        <ul id="lang-dropdown-mobile" class="dropdown-content">
+            <li>
+                <a class="waves-effect btn-swedish" href="#!">
+                    <span class="flag-icon flag-icon-se"></span>
+                    Svenska</a>
+            </li>
+            <li>
+                <a class="waves-effect btn-english" href="#!">
+                    <span class="flag-icon flag-icon-gb"></span>
+                    English</a>
+            </li>
+        </ul>
+        <nav class="{{ general.nav_color }}">
+            <div class="nav-wrapper">
+                <a href="{{ path_for('home') }}" class="brand-logo">
+                    <span class="hide-on-med-and-down">&nbsp;&nbsp;</span>
+                    <img style="max-width:50px;max-height:50px;margin-top: 4px;" src="images/forkknife.png"/>
+                    <span style="margin-bottom: 15%;font-size: 2.92rem;font-weight: 400;font-family: 'Dancing Script';display: inline-block;
+  vertical-align: middle;line-height: normal;">Blekan</span>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="{% if home is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('home') }}" data-translatable>Hem // Home</a>
+                    </li>
+                    <li class="{% if information is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('information') }}">Information</a>
+                    </li>
+                    <li class="{% if menu is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('menu') }}" data-translatable>Meny // Menu</a>
+                    </li>
+                    <li class="{% if takeaway is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('takeaway') }}" data-translatable>Takeaway mat // Takeaway food</a>
+                    </li>
+                    <li class="{% if contact is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('contact') }}" data-translatable>Kontakta // Contact</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-button waves-effect lang-btn" href="#" data-activates="lang-dropdown">
+                            <span class="flag-icon flag-icon-se"></span>
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" data-activates="mobile-nav" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="side-nav" id="mobile-nav">
+                    <li class="{% if home is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('home') }}" data-translatable>Hem // Home</a>
+                    </li>
+                    <li class="{% if information is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('information') }}">Information</a>
+                    </li>
+                    <li class="{% if menu is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('menu') }}" data-translatable>Meny // Menu</a>
+                    </li>
+                    <li class="{% if takeaway is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('takeaway') }}" data-translatable>Takeaway mat // Takeaway food</a>
+                    </li>
+                    <li class="{% if contact is defined %}active{% endif %}">
+                        <a class="waves-effect" href="{{ path_for('contact') }}" data-translatable>Kontakta // Contact</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-button waves-effect lang-btn" href="#" data-activates="lang-dropdown-mobile">
+                            <span class="flag-icon flag-icon-se"></span>
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

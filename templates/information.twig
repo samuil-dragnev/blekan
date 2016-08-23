@@ -1,0 +1,135 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container" id="info">
+        <h2 class="header center black-text" style="font-family: 'Dancing Script', serif; text-shadow: 1px 1px 2px #4e4e4e;">Information</h2>
+        <div class="slider z-depth-3">
+            <ul class="slides">
+                {% for slide in slides %}
+                    <li>
+                        <img class="responsive-img" alt="{{ slide.description }}" src="{{ base_url() }}/{{ slide.src}}"/>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s12 m8 l8 push-m2 push-l2">
+                <table class="bordered">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Öppettider // Open hours</span>
+                            </td>
+                            <td>
+                                <ul class="center-align light flow-text">
+                                    {% for hour in hours %}
+                                        <li>
+                                            <span style="font-family: 'Neucha';" data-translatable>
+                                                {{ hour.value ~ " // " ~ hour.value_en }}
+                                            </span>
+                                        </li>
+                                        <li class="divider"></li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Adress // Address</span>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li class="flow-text">
+                                        <strong style="font-family: 'Neucha';" class="gery-text text-darken-4">
+                                            <i class="material-icons">location_on</i>
+                                            <span data-translatable>Adress: // Address:</span>
+                                        </strong>
+                                        <a
+                                            class="grey-text text-darken-1"
+                                            href="https://www.google.se/maps/place/Restaurang+Blekan+AB/@56.2040022,15.2768033,17z/data=!4m13!1m7!3m6!1s0x4656646339c1c1b5:0x7c1b789ef91ced4d!2s%C3%96vre+Brunnsv%C3%A4gen+30,+372+36+Ronneby!3b1!8m2!3d56.2040022!4d15.278992!3m4!1s0x4656646339c1c1b5:0xe01b7761c474de27!8m2!3d56.2040317!4d15.2791887"
+                                            target="_blank">{{ general.address }}</a>
+                                    </li>
+                                    <li class="flow-text">
+                                        <strong style="font-family: 'Neucha';" class="gery-text text-darken-4">
+                                            <i class="material-icons">phone</i>
+                                            <span data-translatable>Telefon: // Telphone:</span>
+                                        </strong>
+                                        <a class="grey-text text-darken-1" href="tel:+46-{{ general.telephone }}">
+                                            0{{ general.telephone }}</a>
+                                    </li>
+                                    <li class="flow-text">
+                                        <strong style="font-family: 'Neucha';" class="gery-text text-darken-4">
+                                            <i class="material-icons">email</i>
+                                            <span data-translatable>E-post: // Email:</span>
+                                        </strong>
+                                        <a class="grey-text text-darken-1" href="mailto: {{ general.email }}">
+                                            {{ general.email }}</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Antal platser // Number of places</span>
+                            </td>
+                            <td>
+                                <span style="font-family: 'Neucha';" class="flow-text">{{ data.seats }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Kategorier / utbud // Categories / range</span>
+                            </td>
+                            <td>
+                                <span style="font-family: 'Neucha';" class="flow-text center-align" data-translatable>{{ data.food_type ~ " // " ~ data.food_type_en }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Restaurangtyp // Restaurant type</span>
+                            </td>
+                            <td>
+                                <span style="font-family: 'Neucha';" class="flow-text" data-translatable>{{ data.restaurant_type ~ " // " ~ data.restaurant_type_en }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Övrigt // Other</span>
+                            </td>
+                            <td>
+                                <span style="font-family: 'Neucha';" class="flow-text" data-translatable>{{ data.other_type ~ " // " ~ data.other_type_en }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Miljö // Environment</span>
+                            </td>
+                            <td >
+                                <span style="font-family: 'Neucha';" class="flow-text" data-translatable>{{ data.atmosphere ~ " // " ~ data.atmosphere_en }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Betalning // Payment</span>
+                            </td>
+                            <td >
+                                <span style="font-family: 'Neucha';" class="flow-text" data-translatable>
+                                    {{ data.payment ~ " // " ~ data.payment_en }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="flow-text" style="font-weight: bold;" data-translatable>Tjänster // Services</span>
+                            </td>
+                            <td >
+                                <span style="font-family: 'Neucha';" class="flow-text" data-translatable>{{ data.services ~ " // " ~ data.services_en }}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

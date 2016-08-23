@@ -1,0 +1,261 @@
+{% extends 'admin/base_admin.twig' %}
+
+{% block content %}
+    <h2 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>General</h2>
+
+    <div class="row">
+        <div class="col s12 l5 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Contact Information:</h3>
+            <form action="{{ path_for('contact.info') }}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="address" id="address" class="validate{{ validation_errors.address ? " invalid" : " " }}" value="{{general.address}}">
+                        <label for="address" data-error="{{ validation_errors.address ? validation_errors.address | first : " "  }}">Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="telephone" id="telephone" class="validate{{ validation_errors.telephone ? " invalid" : " " }}" value="{{general.telephone}}">
+                        <label for="telephone" data-error="{{ validation_errors.telephone ? validation_errors.telephone | first : " "  }}">Telephone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="email" name="email" id="email" class="validate{{ validation_errors.email ? " invalid" : " " }}" value="{{general.email}}">
+                        <label for="email" data-error="{{ validation_errors.email ? validation_errors.email | first : " " }}">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="email_contact" id="email_contact" class="validate{{ validation_errors.email_contact ? " invalid" : " " }}" value="{{general.email_contact}}">
+                        <label for="email_contact" data-error="{{ validation_errors.email_contact ? validation_errors.email_contact | first : " " }}">Contact Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Update<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+        <div class="col s12 l5 push-l2 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Home images:</h3>
+            <form action="{{ path_for('parallax.images') }}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="parallax_img_1" data-error="{{ validation_errors.parallax_img_1 ? validation_errors.parallax_img_1 | first : " "  }}">First image</label>
+                        <input type="text" name="parallax_img_1" id="parallax_img_1" class="validate{{ validation_errors.parallax_img_1 ? " invalid" : " " }}" value="{{general.parallax_img_1}}">
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="parallax_img_2" data-error="{{ validation_errors.parallax_img_2 ? validation_errors.parallax_img_2 | first : " "  }}">Second image</label>
+                        <input type="text" name="parallax_img_2" id="parallax_img_2" class="validate{{ validation_errors.parallax_img_2 ? " invalid" : " " }}" value="{{general.parallax_img_2}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="parallax_img_3" data-error="{{ validation_errors.parallax_img_3 ? validation_errors.parallax_img_3 | first : " " }}">Third image</label>
+                        <input type="text" name="parallax_img_3" id="parallax_img_3" class="validate{{ validation_errors.parallax_img_3 ? " invalid" : " " }}" value="{{general.parallax_img_3}}">
+                    </div>
+                </div>
+                <p class="flow-text">
+                  If there is no logo provide a 'Main title'!
+                </p>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="logo_image" data-error="{{ validation_errors.logo_image ? validation_errors.logo_image | first : " " }}">Logo image (560 x 360)</label>
+                        <input type="text" name="logo_image" id="logo_image" class="validate{{ validation_errors.logo_image ? " invalid" : " " }}" value="{{general.logo_image}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="main_title" data-error="{{ validation_errors.main_title ? validation_errors.main_title | first : " " }}">Main title</label>
+                        <input type="text" name="main_title" id="main_title" class="validate{{ validation_errors.main_title ? " invalid" : " " }}" value="{{general.main_title}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Update<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l5 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Color theme:</h3>
+            <form action="{{ path_for('colors') }}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="col s6">
+                        <label for="nav_color" data-error="{{ validation_errors.nav_color ? validation_errors.nav_color | first : " "  }}">Navigation color:</label>
+                        <input type="text" name="nav_color" id="nav_color" class="validate{{ validation_errors.nav_color ? " invalid" : " " }}" value="{{general.nav_color}}">
+                    </div>
+                    <div class="col s6">
+                        <button type="button" data-target="color-modal" id="btnChangeColor1" class="btn waves-effect waves-light  {{ general.nav_color }} modal-trigger">Pick color</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <label for="header_color" data-error="{{ validation_errors.header_color ? validation_errors.header_color | first : " "  }}">Menu header color:</label>
+                        <input type="text" name="header_color" id="header_color" class="validate{{ validation_errors.header_color ? " invalid" : " " }}" value="{{general.header_color}}">
+
+                    </div>
+                    <div class="col s6">
+                        <button type="button" data-target="color-modal" id="btnChangeColor2" class="btn waves-effect waves-light {{ general.header_color }} modal-trigger">Pick color</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <label for="footer_color" data-error="{{ validation_errors.footer_color ? validation_errors.footer_color | first : " "  }}">Footer color:</label>
+                        <input type="text" name="footer_color" id="footer_color" class="validate{{ validation_errors.footer_color ? " invalid" : " " }}" value="{{general.footer_color}}">
+
+                    </div>
+                    <div class="col s6">
+                        <button type="button" data-target="color-modal" id="btnChangeColor3" class="btn waves-effect waves-light {{ general.footer_color }} modal-trigger">Pick color</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Update<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+
+        <div class="col s12 l5 push-l2 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Home messages:</h3>
+            <form action="{{ path_for('home.messages') }}" method="post" autocomplete="off">
+                {% set main_message = general.message_home | split('//') %}
+                {% set ribbon_message = general.message_home_ribbon | split('//') %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="home_main_message" data-error="{{ validation_errors.home_main_message ? validation_errors.home_main_message | first : " "  }}" data-translatable>Main Message Swedish</label>
+                        <textarea id="home_main_message" name="home_main_message" class="materialize-textarea" maxlength="511">{{ main_message[0]  }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="home_main_message_en" data-error="{{ validation_errors.home_main_message_en ? validation_errors.home_main_message_en | first : " "  }}" data-translatable>Main Message English</label>
+                        <textarea id="home_main_message_en" name="home_main_message_en" class="materialize-textarea" maxlength="511">{{ main_message[1]  }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="home_ribbon_message" data-error="{{ validation_errors.home_ribbon_message ? validation_errors.home_ribbon_message | first : " "  }}" data-translatable>Ribbon Message Swedish</label>
+                        <input type="text" id="home_ribbon_message" name="home_ribbon_message" class="materialize-textarea" value="{{ ribbon_message[0] | raw}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="home_ribbon_message_en" data-error="{{ validation_errors.home_ribbon_message_en ? validation_errors.home_ribbon_message_en | first : " "  }}" data-translatable>Ribbon Message English</label>
+                        <input type="text" id="home_ribbon_message_en" name="home_ribbon_message_en" class="materialize-textarea" value="{{ ribbon_message[1] | raw}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Update<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6 push-l3 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Menu / Takeaway messages:</h3>
+            <form action="{{ path_for('menu.takeaway.messages') }}" method="post" autocomplete="off">
+                {% set menu_message = general.message_menu | split('//') %}
+                {% set takeaway_message = general.message_takeaway | split('//') %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="menu_message" data-error="{{ validation_errors.menu_message ? validation_errors.menu_message | first : " "  }}" data-translatable>Menu Message Swedish</label>
+                        <textarea id="menu_message" name="menu_message" class="materialize-textarea" maxlength="511">{{ menu_message[0] }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="menu_message_en" data-error="{{ validation_errors.menu_message_en ? validation_errors.menu_message_en | first : " "  }}" data-translatable>Menu Message English</label>
+                        <textarea id="menu_message_en" name="menu_message_en" class="materialize-textarea" maxlength="511">{{ menu_message[1] }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="takeaway_message" data-error="{{ validation_errors.takeaway_message ? validation_errors.takeaway_message | first : " "  }}" data-translatable>Takeaway Message Swedish</label>
+                        <textarea id="takeaway_message" name="takeaway_message" class="materialize-textarea" maxlength="511">{{ takeaway_message[0] }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="takeaway_message_en" data-error="{{ validation_errors.takeaway_message_en ? validation_errors.takeaway_message_en | first : " "  }}" data-translatable>Takeaway Message English</label>
+                        <textarea id="takeaway_message_en" name="takeaway_message_en" class="materialize-textarea" maxlength="511">{{ takeaway_message[1] }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Update<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6 push-l3 z-depth-3 card-panel">
+            <h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Add new Time slot to Open Hours:</h3>
+            <form action="{{ path_for('hours.new') }}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="value" id="value" class="validate{{ validation_errors.value ? " invalid" : " " }}" {% if old_input.value is not empty %} value="{{old_input.value}}" {% endif %}>
+                        <label for="value" data-error="{{ validation_errors.value ? validation_errors.value | first : " "  }}">Day + hours (Swedish)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="value_en" id="value_en" class="validate{{ validation_errors.value_en ? " invalid" : " " }}" {% if old_input.value_en is not empty %} value="{{old_input.value_en}}" {% endif %}>
+                        <label for="value_en" data-error="{{ validation_errors.value_en ? validation_errors.value_en | first : " "  }}">Day + hours (English)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light">
+                            Create<i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+    </div>
+    {% set hoursLen = hours | length %}
+    {% for hour in hours %}
+        {% if loop.index0 == 0 or loop.index0 % 2 == 0 %}
+            {{ '<div class="row">' }}
+            {% if (hoursLen % 2 == 1 and loop.index0 == (hoursLen - 1)) %}
+                <div class="col s12 l6 push-l3 card-panel z-depth-1">
+                    {% include 'partials/admin_hours_edit.twig' %}</div>
+                {{ '</div>'}}
+            {% else %}
+                <div class="col s12 l5 card-panel z-depth-1">{% include 'partials/admin_hours_edit.twig' %}</div>
+            {% endif %}
+        {% else %}
+            <div class="col s12 l5 push-l2 card-panel z-depth-1">
+                {% include 'partials/admin_hours_edit.twig' %}</div>
+            {{ '</div>'}}
+        {% endif %}
+    {% endfor %}
+    {% include 'partials/admin_colorPickModal.twig' %}
+
+</div>
+{% endblock %}

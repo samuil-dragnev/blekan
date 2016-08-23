@@ -1,0 +1,120 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                {% if general.logo_image %}
+                    <div class="row">
+                        <div class="col s12 center">
+                            <img class="responsive-img" src="{{ base_url() }}/{{general.logo_image}}">
+                        </div>
+                    </div>
+                {% else %}
+                    <h2 class="header center white-text" style="font-family: 'Merriweather', serif; text-shadow: 0 2px 2px #FF0000; margin-bottom: 100px" data-translatable>{{ general.main_title }}</h2>
+                {% endif %}
+                <div class="row center">
+                    <div class="non-semantic-protector">
+                        <div class="title-container">
+                            <div class="ribbon-left"></div>
+                            <div class="backflag-left"></div>
+                            <div class="ribbon-title">
+                                <span data-translatable style="font-family: 'Alex Brush';">{{ general.message_home_ribbon }}</span>
+                            </div>
+                            <div class="backflag-right"></div>
+                            <div class="ribbon-right"></div>
+                        </div>
+                    </div>
+                    <div class="stars-white">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                </div>
+                <div class="row center">
+                    <a href="{{ path_for('contact') }}" id="contact-button" class="btn-large waves-effect waves-light" data-translatable>Kontakta oss // Contact us</a>
+                </div>
+                <br>
+                <br>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="{{ base_url() }}/{{ general.parallax_img_1 }}" alt="Unsplashed background img 1" class="responsive-img"/></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 l8 push-l2 center">
+                    <p data-translatable class="center-align light bquote flow-text">
+                        {% set home_message = general.message_home | split('//') %}
+                        <span style="font-family: 'Neucha';" class="flow-text">
+                            {{ home_message[0]|nl2br }}
+                        </span>
+                        <span style="font-family: 'Neucha';" class="flow-text">
+                            {{ home_message[1]|nl2br }}
+                        </span>
+                    </p>
+                    <div class="stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    <div>
+                        <a href="{{ path_for('information') }}" class="waves-effect waves-light btn-large">
+                            <i class="material-icons left">info</i>
+                            <span data-translatable class="flow-text">Mer info // More information</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="parallax"><img src="{{ base_url() }}/{{ general.parallax_img_2 }}" alt="Unsplashed background img 2" class="responsive-img"/></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 l6 center">
+                    <h2 data-translatable class="center-align" style="font-family: 'Alex Brush';">Öppettider // Open hours</h2>
+                    <ul class="center-align light flow-text">
+                        {% for hour in hours %}
+                            <li>
+                                <span style="font-family: 'Neucha';" data-translatable>
+                                    {{ hour.value ~ " // " ~ hour.value_en }}
+                                </span>
+                            </li>
+                            <li class="divider"></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col s12 l6">
+                    <div class="valign-wrapper">
+                        <iframe
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRestaurang-Blekan-1456559421305630%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                            width="340"
+                            height="500"
+                            style="border:none;overflow:hidden;margin:auto;"
+                            scrolling="no"
+                            frameborder="0"
+                            allowTransparency="true"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="parallax"><img src="{{ base_url() }}/{{ general.parallax_img_3 }}" alt="Unsplashed background img 3" class="responsive-img"/></div>
+    </div>
+
+{% endblock %}

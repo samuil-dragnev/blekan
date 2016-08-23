@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="header center black-text" style="font-family: 'Dancing Script', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Meny // Menu</h2>
+        <div class="row">
+            <div class="col s12 m8 l8 push-m2 push-l2">
+                <p class="flow-text center-align" style="font-family: 'Neucha'" data-translatable>
+                    {% set text = general.message_menu | split('//') %}
+                    <span class="flow-text">
+                        {{ text[0]|nl2br }}
+                    </span>
+                    <span class="flow-text">
+                        {{ text[1]|nl2br }}
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        {% for category in categories %}
+            <div class="row">
+                <div class="col s12">
+                    <ul class="collection with-header z-depth-3">
+                        <li class="collection-header {{ general.header_color }}">
+                            <h3 style="font-family: 'Alex Brush'" data-translatable>{{ category.title ~ " // " ~ category.title_en }}</h3>
+                            <p class="flow-text center-align" style="font-family: 'Neucha';margin: 0;" data-translatable>
+                                {% if category.description is not empty %}
+                                    {{ category.description ~ " // " ~ category.description_en }}
+                                {% endif %}
+                            </p>
+                        </li>
+                        {% for item in category.items %}
+                            <li class="collection-item flow-text">
+                                <div class="collection-item">
+                                    <span style="font-weight: bold;" data-translatable>{{ item.title ~ " // " ~ item.title_en }}</span>
+                                    {% if item.description %}
+                                    <br><br>
+                                    <span style="font-family: 'Neucha'" data-translatable>{{ item.description ~ " // " ~ item.description_en }}</span>
+                                    {% endif %}
+                                    {% if item.price %}
+                                        <span class="secondary-content" >{{ item.price }}:-</span>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

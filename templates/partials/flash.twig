@@ -1,0 +1,23 @@
+{% if (flash.getMessage('info')) %}
+    <div id="flash-modal" class="modal">
+        <div class="modal-content">
+            <h4>Info</h4>
+            <p data-translatable>{{ flash.getMessage('info') | first }}</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat light-blue lighten-2">OK</a>
+        </div>
+    </div>
+{% endif %}
+
+{% if (flash.getMessage('error')) %}
+    <div id="flash-modal" class="modal">
+        <div class="modal-content">
+            <h4>Error!?</h4>
+            <p data-translatable>{{ flash.getMessage('error') | first }}</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat light-blue lighten-2">OK</a>
+        </div>
+    </div>
+{% endif %}

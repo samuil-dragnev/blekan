@@ -1,0 +1,52 @@
+<footer class="page-footer no-marg-top {{ general.footer_color }}">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <div class="row">
+                    <h3 style="font-family: 'Dancing Script', serif;" class="white-text" data-translatable>Kontakta oss // Contact us</h3>
+                </div>
+                <ul>
+                    <li>
+                        <strong class="grey-text text-lighten-4">
+                            <i class="material-icons">location_on</i>
+                            <span data-translatable>Adress: // Address:</span>
+                        </strong>
+                        <a
+                            class="grey-text text-lighten-3"
+                            href="https://www.google.se/maps/place/Restaurang+Blekan+AB/@56.2040022,15.2768033,17z/data=!4m13!1m7!3m6!1s0x4656646339c1c1b5:0x7c1b789ef91ced4d!2s%C3%96vre+Brunnsv%C3%A4gen+30,+372+36+Ronneby!3b1!8m2!3d56.2040022!4d15.278992!3m4!1s0x4656646339c1c1b5:0xe01b7761c474de27!8m2!3d56.2040317!4d15.2791887"
+                            target="_blank">{{ general.address }}</a>
+                    </li>
+                    <li>
+                        <strong class="grey-text text-lighten-4">
+                            <i class="material-icons">phone</i>
+                            <span data-translatable>Telefon: // Telphone:</span>
+                        </strong>
+                        <a class="grey-text text-lighten-3" href="tel:+46-{{ general.telephone }}">
+                            0{{ general.telephone }}</a>
+                    </li>
+                    <li>
+                        <strong class="grey-text text-lighten-4">
+                            <i class="material-icons">email</i>
+                            <span data-translatable>E-post: // Email:</span>
+                        </strong>
+                        <a class="grey-text text-lighten-3" href="mailto: {{ general.email }}">{{ general.email }}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col s12 m4 l4 offset-l2 offset-m2">
+                <div class="row">
+                    <h3 style="font-family: 'Dancing Script', serif;" class="white-text" data-translatable>Följ/Som Oss // Follow/Like us</h3>
+                </div>
+                <div id="share"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © {{ "now"|date("Y") }} Blekan,
+            <span data-translatable>Alla rättigheter är reserverade // All rights reserved</span>
+            <a class="grey-text text-lighten-4 right" href="#!">Blekan.se</a>
+        </div>
+    </div>
+</footer>

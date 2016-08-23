@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="header center black-text" style="font-family: 'Dancing Script', serif; text-shadow: 1px 1px 2px #4e4e4e;">Takeaway</h2>
+        <div class="row">
+            <div class="col s12 m8 l8 push-m2 push-l2">
+                <p class="flow-text center-align" style="font-family: 'Neucha'" data-translatable>
+                    {% set text = general.message_takeaway | split('//') %}
+                    <span class="flow-text">
+                        {{ text[0]|nl2br }}
+                    </span>
+                    <span class="flow-text">
+                        {{ text[1]|nl2br }}
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        {% set catLen = categories | length %}
+        {% for category in categories %}
+            {% if loop.index0 == 0 or loop.index0 % 2 == 0 %}
+                {{ '<div class="row">' }}
+                {% if (catLen % 2 == 1 and loop.index0 == (catLen - 1)) %}
+                    <div class="col s12 l6 push-l3">{% include 'partials/public_takeaway_item.twig' %}</div>
+                    {{ '</div>'}}
+                {% else %}
+                    <div class="col s12 l6">{% include 'partials/public_takeaway_item.twig' %}</div>
+                {% endif %}
+            {% else %}
+                <div class="col s12 l6">{% include 'partials/public_takeaway_item.twig' %}</div>
+                {{ '</div>'}}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

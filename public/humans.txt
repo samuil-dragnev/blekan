@@ -1,0 +1,11 @@
+# TEAM
+
+  Samuil Dragnev -- samuil.dragnev@gmail.com
+
+# THANKS
+
+  <name>
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, CSS, JavaScript, PHP, Slim Framework, Materialize

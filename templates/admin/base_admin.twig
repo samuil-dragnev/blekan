@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{ base_url() }}/styles/materialize.min.css"/>
+
+        <!-- Custom styles -->
+        <link type="text/css" rel="stylesheet" href="{{ base_url() }}/styles/main.css"/>
+
+    </head>
+
+    <body>
+        {% include 'partials/admin_header.twig' %}
+        <main id="content" class="container">
+            {% include 'partials/flash.twig' %}
+            {% block content %}{% endblock %}
+        </main>
+        {% include 'partials/admin_footer.twig' %}
+
+        <script type="text/javascript" src="{{ base_url() }}/scripts/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="{{ base_url() }}/scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="{{ base_url() }}/scripts/jssocials.min.js"></script>
+        <script type="text/javascript" src="{{ base_url() }}/scripts/dom-i18n.min.js"></script>
+        <script type="text/javascript" src="{{ base_url() }}/scripts/store2.js"></script>
+        <script type="text/javascript" src="{{ base_url() }}/scripts/main.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                if ($('#flash-modal').length) {
+                    $('#flash-modal').openModal();
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'admin/base_admin.twig' %}
+
+{% block content %}
+    <h2 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;" data-translatable>Register a new Admin</h2>
+
+    <div class="row">
+        <div class="col s12 m8 l6 push-m2 push-l3 z-depth-3 card-panel">
+            <form action="{{ path_for('signup') }}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input type="text" name="first_name" id="first_name" class="validate{{ validation_errors.first_name ? " invalid" : " " }}" value="{{old_input.first_name}}">
+                        <label for="first_name" data-error="{{ validation_errors.first_name ? validation_errors.first_name | first : " "  }}">First name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" name="last_name" id="last_name" class="validate{{ validation_errors.last_name ? " invalid" : " " }}" value="{{old_input.last_name}}">
+                        <label for="last_name" data-error="{{ validation_errors.last_name ? validation_errors.last_name | first : " "  }}">Last name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="email" name="email" id="email" class="validate{{ validation_errors.email ? " invalid" : " " }}" value="{{old_input.email}}">
+                        <label for="email" data-error="{{ validation_errors.email ? validation_errors.email | first : " " }}">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="password" name="password" id="password" class="validate{{ validation_errors.password ? " invalid" : " " }}">
+                        <label for="password" data-error="{{ validation_errors.password ? validation_errors.password | first : " "  }}">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light">
+                        Sign up<i class="material-icons right">send</i>
+                    </button>
+                  </div>
+                </div>
+                {{ csrf.field | raw }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

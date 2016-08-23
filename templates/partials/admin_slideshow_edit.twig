@@ -1,0 +1,40 @@
+<h5 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;">Update image:</h5>
+<span style="font-weight: bold;">Position:
+    {{ loop.index }}</span>
+<form action="{{ path_for('slideshow.edit') }}" method="post" autocomplete="off">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" name="image_src" id="image_src" class="validate{{ validation_errors.image_src ? " invalid" : " " }}" value="{{ image.src}}">
+            <label for="image_src" data-error="{{ validation_errors.image_src ? validation_errors.image_src | first : " "  }}">Path to image</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="image_description" data-error="{{ validation_errors.image_description ? validation_errors.image_description | first : " "  }}">Description (Optional)</label>
+            <textarea id="image_description" name="image_description" class="materialize-textarea" maxlength="511">{{ image.description}}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button type="submit" class="btn waves-effect waves-light blue darken-2">
+                Update<i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+    <input type="hidden" name="slideshow_id" value="{{ image.id }}">
+    {{ csrf.field | raw }}
+</form>
+<form action="{{ path_for('slideshow.delete') }}" method="post">
+    <div class="row">
+        <div class="col s12">
+            <div class="input-field">
+                <button type="submit" class="btn waves-effect waves-light red darken-2">
+                    Delete<i class="material-icons right">delete</i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <input type="hidden" name="slideshow_id" value="{{ image.id }}">
+    {{ csrf.field | raw }}
+</form>

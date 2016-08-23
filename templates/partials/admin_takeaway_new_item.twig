@@ -1,0 +1,48 @@
+<h3 class="header center black-text" style="font-family: 'Merriweather', serif; text-shadow: 1px 1px 2px #4e4e4e;">Add new Takeaway Item:</h3>
+<form action="{{ path_for('takeaway.item.new') }}" method="post" autocomplete="off">
+    <div class="row">
+        <div class="input-field col s12 l6">
+            <input type="text" name="item_new_title_sv" id="item_new_title_sv" class="validate{{ validation_errors.item_new_title_sv ? " invalid" : " " }}" value="{{old_input.item_new_title_sv}}">
+            <label for="item_new_title_sv" data-error="{{ validation_errors.item_new_title_sv ? validation_errors.item_new_title_sv | first : " "  }}">Title (Swedish)</label>
+        </div>
+        <div class="input-field col s12 l6">
+            <input type="text" name="item_new_title_en" id="item_new_title_en" class="validate{{ validation_errors.item_new_title_en ? " invalid" : " " }}" value="{{old_input.item_new_title_en}}">
+            <label for="item_new_title_en" data-error="{{ validation_errors.item_new_title_en ? validation_errors.item_new_title_en | first : " "  }}">Title (English)</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="item_new_desc_sv" data-translatable>Description (Swedish)</label>
+            <textarea id="item_new_desc_sv" name="item_new_desc_sv" class="materialize-textarea" maxlength="511">{{old_input.item_new_desc_sv }}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="item_new_desc_en" data-translatable>Description (English)</label>
+            <textarea id="item_new_desc_en" name="item_new_desc_en" class="materialize-textarea" maxlength="511">{{old_input.item_new_desc_en }}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 l9 ">
+            <select name="item_new_category" id="item_new_category" class="validate{{ validation_errors.item_new_category ? " invalid" : " " }}" value="{{old_input.item_new_category}}">
+                <option disabled selected>Choose a Category</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if old_input.item_new_category == category.id %} selected {% endif %}>{{ category.title }}</option>
+                {% endfor %}
+            </select>
+            <label for="item_new_category">Category</label>
+        </div>
+        <div class="input-field col s12 l3">
+            <input type="text" name="item_new_price" id="item_new_price" class="validate{{ validation_errors.item_new_price ? " invalid" : " " }}" value="{{old_input.item_new_price}}">
+            <label for="item_new_price" data-error="{{ validation_errors.item_new_price ? validation_errors.item_new_price | first : " "  }}">Price</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button type="submit" class="btn waves-effect waves-light">
+                Create<i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+    {{ csrf.field | raw }}
+</form>

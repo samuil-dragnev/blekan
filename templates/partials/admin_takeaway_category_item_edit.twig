@@ -1,0 +1,35 @@
+<ul class="collection with-header z-depth-3">
+    <li class="collection-header {{ general.header_color }}">
+        <h3 style="font-family: 'Alex Brush'" data-translatable>{{ category.title ~ " // " ~ category.title_en }}</h3>
+        <a href="{{ path_for('category.edit',{ 'id': category.id, 'path': 'admin.takeaway' }) }}" class="btn waves-effect waves-light blue darken-2">
+            Edit<i class="material-icons right">send</i>
+        </a>
+        <p class="flow-text center-align" style="font-family: 'Neucha';margin: 0;" data-translatable>
+            {% if category.description is not empty %}
+                {{ category.description ~ " // " ~ category.description_en }}
+            {% endif %}
+        </p>
+    </li>
+    {% for item in category.items %}
+        <li class="collection-item flow-text">
+            <div class="collection-item">
+                <div class="row">
+                    <div class="col s12">
+                        <span style="font-weight: bold;" data-translatable>{{ item.title ~ " // " ~ item.title_en }}</span>
+                        <br/><br/>
+                        <span style="font-family: 'Neucha'" data-translatable>{{ item.description ~ " // " ~ item.description_en }}</span>
+                        {% if item.price %}
+                            <span class="secondary-content">{{ item.price }}:-</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 l6">
+                        <a href="{{ path_for('item.edit',{ 'id': item.id, 'path': 'admin.takeaway', 'is_takeaway': '1' }) }}" class="btn waves-effect waves-light blue darken-2">
+                            Edit<i class="material-icons right">send</i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
