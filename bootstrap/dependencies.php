@@ -22,6 +22,8 @@ $container['view'] = function ($c) {
       $c->request->getUri()
     ));
 
+    $view->addExtension(new \nochso\HtmlCompressTwig\Extension(true));
+
     $view->getEnvironment()->addGlobal('auth', [
       'isSignedIn' => $c->auth->isSignedIn(),
       'currentUser' => $c->auth->getCurrentUser(),
