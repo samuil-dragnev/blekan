@@ -35,6 +35,7 @@ return [
             'security_type' => 'tsl',
             'port' => 25,
             'username' => '',
-            'password' => ''
+            'password' => '',
+          ],
     ],
 ];

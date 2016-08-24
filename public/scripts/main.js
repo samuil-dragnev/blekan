@@ -94,4 +94,7 @@ $(document).ready(function() {
     if ($('#flash-modal').length) {
         $('#flash-modal').openModal();
     }
+    var bLazy = new Blazy({
+        selector: 'img' // all images
+    });
 });

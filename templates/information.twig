@@ -7,7 +7,7 @@
             <ul class="slides">
                 {% for slide in slides %}
                     <li>
-                        <img class="responsive-img" alt="{{ slide.description }}" src="{{ base_url() }}/{{ slide.src}}"/>
+                        <img class="responsive-img b-lazy" alt="{{ slide.description }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="{{ slide.src}}"/>
                     </li>
                 {% endfor %}
             </ul>
